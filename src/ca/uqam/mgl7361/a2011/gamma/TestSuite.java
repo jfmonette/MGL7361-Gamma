@@ -1,77 +1,42 @@
 package ca.uqam.mgl7361.a2011.gamma;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Collection;
 
-public class TestSuite implements Test
+abstract public class TestSuite implements Test
 {
-    private ArrayList<Test> listTest;
-    private int nbTest;
-    private int nbFailed;
-    
-    public TestSuite()
-    {
-        listTest = new ArrayList<Test>();
-    }
+    private Collection<Test> tests = new ArrayList<Test>();
     
     public final void addTest(Test t)
     {
-        listTest.add(t);
-    }
-    
-    @Override
-    public final void execute()
-    {
-        nbTest = 0;
-        nbFailed = 0;
-        
-        printHeader();
-        for (Test test : listTest)
-        {
-            test.execute();
-            nbTest = nbTest + test.getNbTest();
-            nbFailed = nbFailed + test.getNbTestFailed();
-        }
-        printFooter();
-    }
-    
-    private void printHeader()
-    {
-        if (Trace.getInstance().getWriteInXML())
-        {
-            Trace.getInstance().addLine("<TestSuite>");
-        }
-        else
-        {
-            Trace.getInstance().addLine("Début d'une suite de test");
-        }
-    }
-    
-    private void printFooter()
-    {
-        if (Trace.getInstance().getWriteInXML())
-        {
-            Trace.getInstance().addLine("   <Sommaire>");
-            Trace.getInstance().addLine("       <NombreDeTest>" + nbTest + "</NombreDeTest>");
-            Trace.getInstance().addLine("       <NombreEchec>" + nbFailed + "</NombreEchec>");
-            Trace.getInstance().addLine("   </Sommaire>");
-            Trace.getInstance().addLine("</TestSuite>");
-        }
-        else
-        {
-            Trace.getInstance().addLine(nbTest + " test(s) effectué(s), " + nbFailed + " test(s) échoué(s)");
-            Trace.getInstance().addLine("Fin d'une suite de test");
-        }
-    }
-    
-    @Override
-    public final int getNbTest()
-    {
-        return nbTest;
+        tests.add(t);
     }
 
-    @Override
-    public final int getNbTestFailed()
-    {
-        return nbFailed;
-    }
+	public String getName() {
+		return this.getClass().getName();
+	}
+
+	public Collection<Method> getTestMethods() {
+		Collection<Method> testMethods = new ArrayList<Method>();
+		testMethods.addAll(getSelfTestMethods());
+		testMethods.addAll(getInnerTestMethods());
+    	return  testMethods;
+	}
+
+	private Collection<Method> getSelfTestMethods() {
+		Collection<Method> testMethods = new ArrayList<Method>();
+		for (Method method : this.getClass().getMethods()) {
+    		if (method.getName().startsWith("test") || method.getName().equals("execute") )
+    			testMethods.add(method);
+    	}
+		return testMethods;
+	}
+	private Collection<Method> getInnerTestMethods() {
+		Collection<Method> testMethods = new ArrayList<Method>();
+		for (Test test : tests) {
+			testMethods.addAll(test.getTestMethods());
+		}
+		return testMethods;
+	}
 }

@@ -9,4 +9,10 @@ public class TestCase1 extends TestCase
 
     @Override
     public void tearDown() {}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
