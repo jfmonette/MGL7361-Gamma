@@ -27,4 +27,22 @@ public class RunnerTest {
 		int result = execution.getNumberOfTests();
 		assertEquals(expected, result);
 	}
+	
+	@Test
+	public void itTestsGetExecutionTimeOfTestsWithATestCase() {
+		Runner runner = new Runner();
+		MockTestCase testCase = new MockTestCase();
+		Execution execution = runner.run(testCase);
+		long result = execution.getExecutionTime();
+		assertTrue(result > 0);
+	}
+	
+	@Test
+	public void itTestsGetExecutionTimeOfTestsWithATestSuite() {
+		Runner runner = new Runner();
+		MockTestSuite testSuite = new MockTestSuite();
+		Execution execution = runner.run(testSuite);
+		long result = execution.getExecutionTime();
+		assertTrue(result > 0);
+	}
 }

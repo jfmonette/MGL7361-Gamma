@@ -9,7 +9,7 @@ public class PlainTextFormat implements Format {
 	public String applyFormat(Execution execution) {
 		StringBuilder formattedExecution = new StringBuilder();
 		formattedExecution.append("Execution time : ");
-		formattedExecution.append(execution.getTime().toString() + "\n");
+		formattedExecution.append(execution.getExecutionTime() + "\n");
 		formattedExecution.append("Number of tests : ");
 		formattedExecution.append(execution.getNumberOfTests() + "\n");
 		formattedExecution.append("Number of failures : ");

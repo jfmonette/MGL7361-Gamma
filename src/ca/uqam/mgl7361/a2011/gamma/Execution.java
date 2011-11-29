@@ -4,14 +4,14 @@ import java.lang.reflect.Method;
 import java.util.*;
 
 public class Execution {
-	private Date time = new Date();
+	private long executionTime;
 	private Map<Method, TestResult> tests = new HashMap<Method, TestResult>();
 	
-	public Execution(Date time) {
-		this.time = time;
+	public long setExecutionTime(long executionTime) {
+		return this.executionTime = executionTime;
 	}
-	public Date getTime() {
-		return time;
+	public long getExecutionTime() {
+		return executionTime;
 	}
 	public void put(Method test, TestResult testResult) {
 		tests.put(test, testResult);

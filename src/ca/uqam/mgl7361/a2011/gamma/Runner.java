@@ -8,8 +8,9 @@ import ca.uqam.mgl7361.a2011.gamma.Execution.TestResult;
 public class Runner {
 	
 	public Execution run(Collection<Test> tests) {
-		Execution execution = new Execution(new Date());
+		Execution execution = new Execution();
 		Collection<Method> testMethods = getAllTestMethods(tests);
+		long startTime = System.nanoTime();
 		for (Method testMethod : testMethods) {
 			try {
 				invokeTestMethod(testMethod);
@@ -18,6 +19,7 @@ public class Runner {
 				execution.put(testMethod, TestResult.FAILED);
 			}
 		}
+		execution.setExecutionTime(System.nanoTime() - startTime);
 		return execution;
 	}
 	
