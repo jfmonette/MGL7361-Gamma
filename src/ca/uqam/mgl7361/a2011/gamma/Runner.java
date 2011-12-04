@@ -1,43 +1,32 @@
 package ca.uqam.mgl7361.a2011.gamma;
 
 import java.lang.reflect.Method;
-import java.util.*;
-
-import ca.uqam.mgl7361.a2011.gamma.Execution.TestResult;
+import ca.uqam.mgl7361.a2011.gamma.executions.*;
+import ca.uqam.mgl7361.a2011.gamma.executions.Execution.Result;
 
 public class Runner {
+	public ExecutionsCollection run(Test test) {
+		ExecutionsCollection executions = new ExecutionsCollection(test.getName());
+		for (Method testMethod : test.getTestMethods()) {
+			executions.add(run(testMethod));
+		}
+		return executions;
+	}
 	
-	public Execution run(Collection<Test> tests) {
+	private Execution run(Method testMethod) {
 		Execution execution = new Execution();
-		Collection<Method> testMethods = getAllTestMethods(tests);
+		execution.setName(testMethod.getName());
 		long startTime = System.nanoTime();
-		for (Method testMethod : testMethods) {
-			try {
-				invokeTestMethod(testMethod);
-				execution.put(testMethod, TestResult.SUCCESSFUL);
-			} catch (Exception e) {
-				execution.put(testMethod, TestResult.FAILED);
-			}
+		try {
+			invokeTestMethod(testMethod);
+			execution.setResult(Result.Successful);
+		} catch (Exception e) {
+			execution.setResult(Result.Failed);
 		}
 		execution.setExecutionTime(System.nanoTime() - startTime);
 		return execution;
 	}
-	
-	public Execution run(Test test) {
-		Collection<Test> tests = new ArrayList<Test>();
-		tests.add(test);
-		Execution execution = run(tests);  
-		return execution;
-	}
-	
-	private Collection<Method> getAllTestMethods(Collection<Test> tests) {
-		Collection<Method> testMethods = new ArrayList<Method>();
-		for (Test test : tests) {
-			testMethods.addAll(test.getTestMethods());
-		}
-		return testMethods;
-	}
-	
+
 	private void invokeTestMethod(Method testMethod) throws Exception {
 		String testClassName = testMethod.getDeclaringClass().getName();
 		Test testInstance = (Test)Class.forName(testClassName).newInstance();

@@ -1,36 +1,32 @@
 package ca.uqam.mgl7361.a2011.gamma.formats;
 
-import java.lang.reflect.Method;
-import java.util.Map.Entry;
-import ca.uqam.mgl7361.a2011.gamma.Execution;
+import ca.uqam.mgl7361.a2011.gamma.executions.*;
 
 public class PlainTextFormat implements Format {
-
-	public String applyFormat(Execution execution) {
-		StringBuilder formattedExecution = new StringBuilder();
-		formattedExecution.append("Execution time : ");
-		formattedExecution.append(execution.getExecutionTime() + "\n");
-		formattedExecution.append("Number of tests : ");
-		formattedExecution.append(execution.getNumberOfTests() + "\n");
-		formattedExecution.append("Number of failures : ");
-		formattedExecution.append(execution.getNumberOfFailures() + "\n\n");
-		formattedExecution.append("Detailed execution results : \n");
-		formattedExecution.append("---------------------------- \n");
-		for (Entry<Method, Execution.TestResult> entry : execution.getTestResults().entrySet()) {
-			formattedExecution.append(getFormattedEntry(entry));
-		}
-		formattedExecution.append("\n");
-		return formattedExecution.toString();
-	}
 	
-	private String getFormattedEntry(Entry<Method, Execution.TestResult> entry) {
-		StringBuilder formattedEntry = new StringBuilder();
-		formattedEntry.append(entry.getKey().getDeclaringClass().getName());
-		formattedEntry.append(".");
-		formattedEntry.append(entry.getKey().getName());
-		formattedEntry.append(" - ");
-		formattedEntry.append(entry.getValue().toString());
-		formattedEntry.append("\n");
-		return formattedEntry.toString();
+	public String applyFormat(ExecutionsCollection executions) {
+		StringBuilder formattedExecutions = new StringBuilder();
+		formattedExecutions.append(executions.getName());
+		formattedExecutions.append(" Executions : ");
+		formattedExecutions.append(executions.getNumberOfExecutions());
+		formattedExecutions.append(" Failures : ");
+		formattedExecutions.append(executions.getNumberOfFailures());
+		formattedExecutions.append(" Finished after : ");
+		formattedExecutions.append(executions.getExecutionTime());
+		formattedExecutions.append(" seconds");
+		formattedExecutions.append("\n");
+		formattedExecutions.append(getExecutionDetails(executions));
+		return formattedExecutions.toString();
+	}
+
+	private String getExecutionDetails(ExecutionsCollection executions) {
+		StringBuilder executionsDetails = new StringBuilder();
+		for(Execution execution : executions.getExecutions()) {
+			executionsDetails.append(execution.getName());
+			executionsDetails.append(" - ");
+			executionsDetails.append(execution.getResult().toString());
+			executionsDetails.append("\n");
+		}
+		return executionsDetails.toString();
 	}
 }

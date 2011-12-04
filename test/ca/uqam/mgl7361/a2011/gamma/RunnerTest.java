@@ -2,9 +2,8 @@ package ca.uqam.mgl7361.a2011.gamma;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-
-import ca.uqam.mgl7361.a2011.gamma.mocking.MockTestCase;
-import ca.uqam.mgl7361.a2011.gamma.mocking.MockTestSuite;
+import ca.uqam.mgl7361.a2011.gamma.executions.*;
+import ca.uqam.mgl7361.a2011.gamma.mocking.*;
 
 public class RunnerTest {
 		
@@ -13,8 +12,8 @@ public class RunnerTest {
 		Runner runner = new Runner();
 		MockTestCase testCase = new MockTestCase();
 		int expected = testCase.getTestMethods().size();
-		Execution execution = runner.run(testCase);
-		int result = execution.getNumberOfTests();
+		ExecutionsCollection executions = runner.run(testCase);
+		int result = executions.getNumberOfExecutions();
 		assertEquals(expected, result);
 	}
 	
@@ -23,8 +22,8 @@ public class RunnerTest {
 		Runner runner = new Runner();
 		MockTestSuite testSuite = new MockTestSuite();
 		int expected = testSuite.getTestMethods().size();
-		Execution execution = runner.run(testSuite);
-		int result = execution.getNumberOfTests();
+		ExecutionsCollection executions = runner.run(testSuite);
+		int result = executions.getNumberOfExecutions();
 		assertEquals(expected, result);
 	}
 	
@@ -32,8 +31,8 @@ public class RunnerTest {
 	public void itTestsGetExecutionTimeOfTestsWithATestCase() {
 		Runner runner = new Runner();
 		MockTestCase testCase = new MockTestCase();
-		Execution execution = runner.run(testCase);
-		long result = execution.getExecutionTime();
+		ExecutionsCollection executions = runner.run(testCase);
+		long result = executions.getExecutionTime();
 		assertTrue(result > 0);
 	}
 	
@@ -41,8 +40,8 @@ public class RunnerTest {
 	public void itTestsGetExecutionTimeOfTestsWithATestSuite() {
 		Runner runner = new Runner();
 		MockTestSuite testSuite = new MockTestSuite();
-		Execution execution = runner.run(testSuite);
-		long result = execution.getExecutionTime();
+		ExecutionsCollection executions = runner.run(testSuite);
+		long result = executions.getExecutionTime();
 		assertTrue(result > 0);
 	}
 }
