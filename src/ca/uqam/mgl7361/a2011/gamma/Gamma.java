@@ -1,7 +1,6 @@
 package ca.uqam.mgl7361.a2011.gamma;
 
-import ca.uqam.mgl7361.a2011.gamma.executions.Execution;
-import ca.uqam.mgl7361.a2011.gamma.executions.ExecutionsCollection;
+import ca.uqam.mgl7361.a2011.gamma.executions.Executions;
 import ca.uqam.mgl7361.a2011.gamma.formats.*;
 import ca.uqam.mgl7361.a2011.gamma.writers.*;
 import jargs.gnu.CmdLineParser;
@@ -20,7 +19,7 @@ public class Gamma {
 		boolean consoleOutputEnabled = (Boolean)commandLineParser.getOptionValue(consoleOutputEnabledOption, Boolean.FALSE);
 			
 		String[] testClassesNames = commandLineParser.getRemainingArgs();
-		ExecutionsCollection executions = run(testClassesNames[0]);
+		Executions executions = run(testClassesNames[0]);
 		Writer writer = new TextFileWriter(fileName);
 		Format format = new PlainTextFormat();
 		if (xmlFormatEnabled)
@@ -32,9 +31,9 @@ public class Gamma {
 		}
 	}
 
-	private static ExecutionsCollection run(String testClassName) {
+	private static Executions run(String testClassName) {
 		Runner runner = new Runner();
-		ExecutionsCollection execution = null;
+		Executions execution = null;
 		ClassLoader classLoader = Gamma.class.getClassLoader();
 		Test test;
 		try {

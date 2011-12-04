@@ -1,7 +1,7 @@
 package ca.uqam.mgl7361.a2011.gamma.writers;
 
 import java.io.*;
-import ca.uqam.mgl7361.a2011.gamma.executions.ExecutionsCollection;
+import ca.uqam.mgl7361.a2011.gamma.executions.Executions;
 import ca.uqam.mgl7361.a2011.gamma.formats.Format;
 
 public class TextFileWriter implements Writer {
@@ -11,7 +11,7 @@ public class TextFileWriter implements Writer {
 		this.fileName = fileName;
 	}
 	
-	public void write(ExecutionsCollection executions, Format format) {
+	public void write(Executions executions, Format format) {
 		String executionStringRepresentation = format.applyFormat(executions);
 		try {
 			FileWriter fileStream = new FileWriter(fileName, true);

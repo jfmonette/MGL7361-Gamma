@@ -5,8 +5,8 @@ import ca.uqam.mgl7361.a2011.gamma.executions.*;
 import ca.uqam.mgl7361.a2011.gamma.executions.Execution.Result;
 
 public class Runner {
-	public ExecutionsCollection run(Test test) {
-		ExecutionsCollection executions = new ExecutionsCollection(test.getName());
+	public Executions run(Test test) {
+		Executions executions = new Executions(test.getName());
 		for (Method testMethod : test.getTestMethods()) {
 			executions.add(run(testMethod));
 		}

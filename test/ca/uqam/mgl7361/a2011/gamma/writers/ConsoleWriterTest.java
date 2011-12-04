@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
 import ca.uqam.mgl7361.a2011.gamma.*;
-import ca.uqam.mgl7361.a2011.gamma.executions.ExecutionsCollection;
+import ca.uqam.mgl7361.a2011.gamma.executions.Executions;
 import ca.uqam.mgl7361.a2011.gamma.formats.*;
 import ca.uqam.mgl7361.a2011.gamma.mocking.*;
 import java.io.*;
@@ -27,7 +27,7 @@ public class ConsoleWriterTest {
 	public void itTestsWriteWithTestCaseUsingPlainTextFormat() {
 		Runner runner = new Runner();
 		MockTestCase testCase = new MockTestCase();
-		ExecutionsCollection executions = runner.run(testCase);
+		Executions executions = runner.run(testCase);
 		ConsoleWriter writer = new ConsoleWriter();
 		Format format = new PlainTextFormat();
 		writer.write(executions, format);
@@ -39,7 +39,7 @@ public class ConsoleWriterTest {
 	public void itTestsWriteWithTestSuiteUsingPlainTextFormat() {
 		Runner runner = new Runner();
 		MockTestSuite testSuite = new MockTestSuite();
-		ExecutionsCollection executions = runner.run(testSuite);
+		Executions executions = runner.run(testSuite);
 		ConsoleWriter writer = new ConsoleWriter();
 		Format format = new PlainTextFormat();
 		writer.write(executions, format);
@@ -51,7 +51,7 @@ public class ConsoleWriterTest {
 	public void itTestsWriteWithTestCaseUsingXMLFormat() {
 		Runner runner = new Runner();
 		MockTestCase testCase = new MockTestCase();
-		ExecutionsCollection executions = runner.run(testCase);
+		Executions executions = runner.run(testCase);
 		ConsoleWriter writer = new ConsoleWriter();
 		Format format = new XMLFormat();
 		writer.write(executions, format);
@@ -63,7 +63,7 @@ public class ConsoleWriterTest {
 	public void itTestsWriteWithTestSuiteUsingXMLFormat() {
 		Runner runner = new Runner();
 		MockTestSuite testSuite = new MockTestSuite();
-		ExecutionsCollection executions = runner.run(testSuite);
+		Executions executions = runner.run(testSuite);
 		ConsoleWriter writer = new ConsoleWriter();
 		Format format = new XMLFormat();
 		writer.write(executions, format);

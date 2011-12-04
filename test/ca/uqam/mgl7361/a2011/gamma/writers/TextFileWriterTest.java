@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import java.io.File;
 import org.junit.Test;
 import ca.uqam.mgl7361.a2011.gamma.*;
-import ca.uqam.mgl7361.a2011.gamma.executions.ExecutionsCollection;
+import ca.uqam.mgl7361.a2011.gamma.executions.Executions;
 import ca.uqam.mgl7361.a2011.gamma.formats.*;
 import ca.uqam.mgl7361.a2011.gamma.mocking.*;
 
@@ -14,7 +14,7 @@ public class TextFileWriterTest {
 	public void itTestsWriteWithTestCaseUsingPlainTextFormat() {
 		Runner runner = new Runner();
 		MockTestCase testCase = new MockTestCase();
-		ExecutionsCollection executions = runner.run(testCase);
+		Executions executions = runner.run(testCase);
 		String fileName = "ExecutionsTest.txt";
 		TextFileWriter writer = new TextFileWriter(fileName);
 		Format format = new PlainTextFormat();
@@ -28,7 +28,7 @@ public class TextFileWriterTest {
 	public void itTestsWriteWithTestSuiteUsingPlainTextFormat() {
 		Runner runner = new Runner();
 		MockTestSuite testSuite = new MockTestSuite();
-		ExecutionsCollection executions = runner.run(testSuite);
+		Executions executions = runner.run(testSuite);
 		String fileName = "ExecutionsTest.txt";
 		TextFileWriter writer = new TextFileWriter(fileName);
 		Format format = new PlainTextFormat();
@@ -42,7 +42,7 @@ public class TextFileWriterTest {
 	public void itTestsWriteWithTestCaseUsingXMLFormat() {
 		Runner runner = new Runner();
 		MockTestCase testCase = new MockTestCase();
-		ExecutionsCollection executions = runner.run(testCase);
+		Executions executions = runner.run(testCase);
 		String fileName = "ExecutionsTest.txt";
 		TextFileWriter writer = new TextFileWriter(fileName);
 		Format format = new XMLFormat();
@@ -56,7 +56,7 @@ public class TextFileWriterTest {
 	public void itTestsWriteWithTestSuiteUsingXMLFormat() {
 		Runner runner = new Runner();
 		MockTestSuite testSuite = new MockTestSuite();
-		ExecutionsCollection executions = runner.run(testSuite);
+		Executions executions = runner.run(testSuite);
 		String fileName = "ExecutionsTest.txt";
 		TextFileWriter writer = new TextFileWriter(fileName);
 		Format format = new XMLFormat();

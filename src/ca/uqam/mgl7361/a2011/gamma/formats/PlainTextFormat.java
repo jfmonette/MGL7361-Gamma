@@ -4,7 +4,7 @@ import ca.uqam.mgl7361.a2011.gamma.executions.*;
 
 public class PlainTextFormat implements Format {
 	
-	public String applyFormat(ExecutionsCollection executions) {
+	public String applyFormat(Executions executions) {
 		StringBuilder formattedExecutions = new StringBuilder();
 		formattedExecutions.append(executions.getName());
 		formattedExecutions.append(" Executions : ");
@@ -19,7 +19,7 @@ public class PlainTextFormat implements Format {
 		return formattedExecutions.toString();
 	}
 
-	private String getExecutionDetails(ExecutionsCollection executions) {
+	private String getExecutionDetails(Executions executions) {
 		StringBuilder executionsDetails = new StringBuilder();
 		for(Execution execution : executions.getExecutions()) {
 			executionsDetails.append(execution.getName());

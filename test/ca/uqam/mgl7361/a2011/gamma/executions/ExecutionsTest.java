@@ -6,12 +6,12 @@ import org.junit.Test;
 
 import ca.uqam.mgl7361.a2011.gamma.executions.Execution.Result;
 
-public class ExecutionsCollectionTest {
+public class ExecutionsTest {
 
 	@Test
 	public void testGetNumberOfExecutions() {
 		int expected = 3;
-		ExecutionsCollection executions = new ExecutionsCollection("anExecution");
+		Executions executions = new Executions("anExecution");
 		executions.add(new Execution());
 		executions.add(new Execution());
 		executions.add(new Execution());
@@ -22,7 +22,7 @@ public class ExecutionsCollectionTest {
 	@Test
 	public void testGetNumberOfFailures() {
 		int expected = 2;
-		ExecutionsCollection executions = new ExecutionsCollection("anExecution");
+		Executions executions = new Executions("anExecution");
 		Execution failedExecution = new Execution();
 		failedExecution.setResult(Result.Failed);
 		executions.add(failedExecution);

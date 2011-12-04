@@ -12,7 +12,7 @@ public class RunnerTest {
 		Runner runner = new Runner();
 		MockTestCase testCase = new MockTestCase();
 		int expected = testCase.getTestMethods().size();
-		ExecutionsCollection executions = runner.run(testCase);
+		Executions executions = runner.run(testCase);
 		int result = executions.getNumberOfExecutions();
 		assertEquals(expected, result);
 	}
@@ -22,7 +22,7 @@ public class RunnerTest {
 		Runner runner = new Runner();
 		MockTestSuite testSuite = new MockTestSuite();
 		int expected = testSuite.getTestMethods().size();
-		ExecutionsCollection executions = runner.run(testSuite);
+		Executions executions = runner.run(testSuite);
 		int result = executions.getNumberOfExecutions();
 		assertEquals(expected, result);
 	}
@@ -31,8 +31,8 @@ public class RunnerTest {
 	public void itTestsGetExecutionTimeOfTestsWithATestCase() {
 		Runner runner = new Runner();
 		MockTestCase testCase = new MockTestCase();
-		ExecutionsCollection executions = runner.run(testCase);
-		long result = executions.getExecutionTime();
+		Executions executions = runner.run(testCase);
+		double result = executions.getExecutionTime();
 		assertTrue(result > 0);
 	}
 	
@@ -40,8 +40,8 @@ public class RunnerTest {
 	public void itTestsGetExecutionTimeOfTestsWithATestSuite() {
 		Runner runner = new Runner();
 		MockTestSuite testSuite = new MockTestSuite();
-		ExecutionsCollection executions = runner.run(testSuite);
-		long result = executions.getExecutionTime();
+		Executions executions = runner.run(testSuite);
+		double result = executions.getExecutionTime();
 		assertTrue(result > 0);
 	}
 }
