@@ -8,12 +8,13 @@ import ca.uqam.mgl7361.a2011.gamma.analysis.writers.*;
 import ca.uqam.mgl7361.a2011.gamma.executions.*;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class Analyser {
 
 	public static void main(String[] args) {
 		FileReader fileReader;
-		XStream xstream = new XStream();
+		XStream xstream = new XStream(new DomDriver());
 		ExecutionsHistory history = new ExecutionsHistory();
 		for (String arg : args) {
 			try {
