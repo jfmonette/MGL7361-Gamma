@@ -13,8 +13,8 @@ public class RunnerTest {
 		MockTestCase testCase = new MockTestCase();
 		int expected = testCase.getTestMethods().size();
 		Executions executions = runner.run(testCase);
-		int result = executions.getNumberOfExecutions();
-		assertEquals(expected, result);
+		double result = executions.getNumberOfExecutions();
+		assertTrue(expected == result);
 	}
 	
 	@Test
@@ -23,8 +23,8 @@ public class RunnerTest {
 		MockTestSuite testSuite = new MockTestSuite();
 		int expected = testSuite.getTestMethods().size();
 		Executions executions = runner.run(testSuite);
-		int result = executions.getNumberOfExecutions();
-		assertEquals(expected, result);
+		double result = executions.getNumberOfExecutions();
+		assertTrue(expected == result);
 	}
 	
 	@Test

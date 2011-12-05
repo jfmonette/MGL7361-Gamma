@@ -1,4 +1,4 @@
-package ca.uqam.mgl7361.a2011.gamma.analysers;
+package ca.uqam.mgl7361.a2011.gamma.analysis;
 
 public class StatisticalAnalysis {
 	private String name;

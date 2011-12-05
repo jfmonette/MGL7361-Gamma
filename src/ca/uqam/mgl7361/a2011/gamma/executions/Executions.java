@@ -13,12 +13,21 @@ public class Executions {
 		this.name = name;
 	}
 	
+	public void setExecutionDate(Date date) {
+		this.executionsDate = date;
+	}
+	
 	public String getName() {
 		return this.name;
 	}
 	
 	public Date getExecutionsDate() {
 		return executionsDate;
+	}
+	
+	public Date getExecutionsDate(Calendar calendar) {
+		calendar.setTime(executionsDate);
+		return calendar.getTime();
 	}
 
 	public void add(Execution execution) {

@@ -1,0 +1,9 @@
+ca.uqam.mgl7361.a2011.gamma.mocking.MockTestCase Executions : 2 Failures : 0 Finished after : 10973000 seconds
+testSomething - Successful
+testSomethingElse - Successful
+ca.uqam.mgl7361.a2011.gamma.mocking.MockTestCase Executions : 2 Failures : 0 Finished after : 0 seconds
+testSomething - Successful
+testSomethingElse - Successful
+ca.uqam.mgl7361.a2011.gamma.mocking.MockTestCase Executions : 2 Failures : 0 Finished after : 6.85E-4 seconds
+testSomething - Successful
+testSomethingElse - Successful

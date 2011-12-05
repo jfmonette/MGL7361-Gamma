@@ -15,8 +15,8 @@ public class ExecutionsTest {
 		executions.add(new Execution());
 		executions.add(new Execution());
 		executions.add(new Execution());
-		int result = executions.getNumberOfExecutions();
-		assertEquals(result, expected);
+		double result = executions.getNumberOfExecutions();
+		assertTrue(expected == result);
 	}
 
 	@Test
@@ -29,8 +29,8 @@ public class ExecutionsTest {
 		Execution anotherFailedExecution = new Execution();
 		anotherFailedExecution.setResult(Result.Failed);
 		executions.add(anotherFailedExecution);
-		int result = executions.getNumberOfFailures();
-		assertEquals(result, expected);
+		double result = executions.getNumberOfFailures();
+		assertTrue(expected == result);
 	}
 
 }
