@@ -1,8 +1,9 @@
-package ca.uqam.mgl7361.a2011.gamma.writers;
+package ca.uqam.mgl7361.a2011.gamma.analysis.writers;
 
 import java.io.*;
-import ca.uqam.mgl7361.a2011.gamma.executions.Executions;
-import ca.uqam.mgl7361.a2011.gamma.formats.Format;
+import java.util.Collection;
+import ca.uqam.mgl7361.a2011.gamma.analysis.StatisticalAnalysis;
+import ca.uqam.mgl7361.a2011.gamma.analysis.formats.*;
 
 public class TextFileWriter implements Writer {
 	private String fileName;
@@ -11,10 +12,10 @@ public class TextFileWriter implements Writer {
 		this.fileName = fileName;
 	}
 	
-	public void write(Executions executions, Format format) {
-		String executionStringRepresentation = format.applyFormat(executions);
+	public void write(Collection<StatisticalAnalysis> analysises, Format format) {
+		String executionStringRepresentation = format.applyFormat(analysises);
 		try {
-			FileWriter fileStream = new FileWriter(fileName + "." + format.getFileExtension(), true);
+			FileWriter fileStream = new FileWriter(fileName, true);
 			BufferedWriter out = new BufferedWriter(fileStream);
 			out.write(executionStringRepresentation);
 			out.close();

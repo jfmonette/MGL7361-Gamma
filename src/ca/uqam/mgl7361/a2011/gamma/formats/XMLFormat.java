@@ -11,5 +11,9 @@ public class XMLFormat implements Format {
 		String xml = xstream.toXML(executions);	
 		return xml;
 	}
+	
+	public String getFileExtension() {
+		return "xml";
+	}
 
 }

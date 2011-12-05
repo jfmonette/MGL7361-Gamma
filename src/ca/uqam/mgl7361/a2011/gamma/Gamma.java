@@ -14,7 +14,7 @@ public class Gamma {
 	
 	public static void main(String[] args) {
 		parseCommandLineArguments(args);
-		String fileName = (String)commandLineParser.getOptionValue(outputFileNameOption, "Execution.txt");
+		String fileName = (String)commandLineParser.getOptionValue(outputFileNameOption, "Executions");
 		boolean xmlFormatEnabled = (Boolean)commandLineParser.getOptionValue(xmlOutputEnabledOption, Boolean.FALSE);
 		boolean consoleOutputEnabled = (Boolean)commandLineParser.getOptionValue(consoleOutputEnabledOption, Boolean.FALSE);
 			

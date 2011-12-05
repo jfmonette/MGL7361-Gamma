@@ -29,4 +29,8 @@ public class PlainTextFormat implements Format {
 		}
 		return executionsDetails.toString();
 	}
+
+	public String getFileExtension() {
+		return "txt";
+	}
 }
