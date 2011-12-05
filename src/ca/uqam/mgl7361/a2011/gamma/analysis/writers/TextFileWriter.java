@@ -15,7 +15,7 @@ public class TextFileWriter implements Writer {
 	public void write(Collection<StatisticalAnalysis> analysises, Format format) {
 		String executionStringRepresentation = format.applyFormat(analysises);
 		try {
-			FileWriter fileStream = new FileWriter(fileName, true);
+			FileWriter fileStream = new FileWriter(fileName);
 			BufferedWriter out = new BufferedWriter(fileStream);
 			out.write(executionStringRepresentation);
 			out.close();
