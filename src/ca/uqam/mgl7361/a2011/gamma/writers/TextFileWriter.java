@@ -14,7 +14,7 @@ public class TextFileWriter implements Writer {
 	public void write(Executions executions, Format format) {
 		String executionStringRepresentation = format.applyFormat(executions);
 		try {
-			FileWriter fileStream = new FileWriter(fileName + "." + format.getFileExtension(), true);
+			FileWriter fileStream = new FileWriter(fileName + "." + format.getFileExtension());
 			BufferedWriter out = new BufferedWriter(fileStream);
 			out.write(executionStringRepresentation);
 			out.close();

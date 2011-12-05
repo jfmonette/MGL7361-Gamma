@@ -1,14 +1,14 @@
 <ca.uqam.mgl7361.a2011.gamma.executions.Executions>
   <name>ca.uqam.mgl7361.a2011.gamma.mocking.MockTestCase</name>
-  <executionsDate>2011-12-05 05:44:14.365 UTC</executionsDate>
+  <executionsDate>2011-12-05 21:56:48.430 UTC</executionsDate>
   <executions class="list">
     <ca.uqam.mgl7361.a2011.gamma.executions.Execution>
-      <executionTime>9352000</executionTime>
+      <executionTime>644000</executionTime>
       <name>testSomething</name>
       <result>Successful</result>
     </ca.uqam.mgl7361.a2011.gamma.executions.Execution>
     <ca.uqam.mgl7361.a2011.gamma.executions.Execution>
-      <executionTime>32000</executionTime>
+      <executionTime>18000</executionTime>
       <name>testSomethingElse</name>
       <result>Successful</result>
     </ca.uqam.mgl7361.a2011.gamma.executions.Execution>
