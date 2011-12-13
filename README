@@ -1,35 +1,13 @@
-$ git clone git://github.com/guybertrand/MGL7361-Gamma.git
-ou
-$ git clone https://guybertrand@github.com/guybertrand/MGL7361-Gamma.git
-
-Le document Gamma.pdf contient les cas d'utilisation et les diagrammes de classe.
-
-=============================
-Pour compiler et exécuter:
+Pour tester et compiler :
 $ cd MGL7361-Gamma
 $ ant
 
-=============================
-Pour nettoyer
-$ ant clean
+Info générale
+-Les exécutables seront dans le sous-répertoire build/ sous :
+Gamma/jars/Gamma.jar
+Analyser/jars/Analyser.jar
 
 =============================
-Pour seulement exécuter le code (paramètres par défaut):
-$ ant run
-
-=============================
-Pour seulement exécuter le code (paramètres spécifiques):
-$ ant runParam -Darg1="xml=true" -Darg2="file=true"
-
-=============================
-
-info générale
--Les exécutables seront dans le sous-répertoire DIST sous la forme:
-Gamma.jar
-
--Le code usager est dans le sous-répertoire DISTTEST
-monApp.jar
-
-=============================
-Pour exécuter à partir de la ligne de commande avec JAVA et option pour XML et écrire dans fichier:
-$ java -cp ./distTest/monApp.jar:./dist/Gamma.jar application.test.TestMain xml=true file=true
+Pour exécuter des tests à partir de la ligne de commande :
+$ java -jar ./build/Gamma/jars/Gamma.jar -xml [noms des classes de tests]
+$ java -jar ./build/Analyser/jars/Analyser.jar [noms des fichiers xml générés par l'outil Gamma]
