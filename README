@@ -1,6 +1,7 @@
 Pour tester et compiler :
 $ cd MGL7361-Gamma
-$ ant
+$ ant -buildfile buildGamma.xml
+$ ant -buildfile buildAnalyser.xml
 
 Info générale
 -Les exécutables seront dans le sous-répertoire build/ sous :
